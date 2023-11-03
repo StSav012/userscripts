@@ -3,9 +3,9 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes
 // @grant       none
-// @version     1.0
-// @author      -
-// @description 6/9/2023, 12:45:55 PM
+// @version     1.0.1
+// @author      StSav012
+// @description Make links to PYSIDE bug reports on https://wiki.qt.io/Qt_for_Python_Development_Notes page
 // ==/UserScript==
 
 "use strict";
