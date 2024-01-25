@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes
 // @grant       none
-// @version     1.0.1
+// @version     1.1.0
 // @author      StSav012
 // @description Make links to PYSIDE bug reports on https://wiki.qt.io/Qt_for_Python_Development_Notes page
 // ==/UserScript==
@@ -19,8 +19,8 @@ function bugreportsLink(bug) {
   return a;
 }
 
-function repl(str) {
-  const bugreportPattern = /PYSIDE-\d+/g;
+function makeBugreportLinks(str) {
+  const bugreportPattern = /\b(?:COIN|QBS|QTBUG|QT3DS|AUTOSUITE|QTJIRA|CLOUD|QTCREATORBUG|QDS|QTEXT|QTMCU||PYSIDE|QTIFW|QLS|QTPLAYGROUND|QTWEBSITE|QTQAINFRA|QSR|QTSOLBUG|QTVSADDINBUG|QTWB|VSCODEEXT)-\d+/g;
   var bugs = str.match(bugreportPattern);
   if (bugs === null) {
     return [str];
@@ -52,7 +52,7 @@ function makeLinks(parent) {
       continue;
     }
     if (n.nodeName === "#text" && n.nodeValue !== undefined) {
-      n.replaceWith(...repl(n.nodeValue));
+      n.replaceWith(...makeBugreportLinks(n.nodeValue));
     } else {
       makeLinks(n);
     }
