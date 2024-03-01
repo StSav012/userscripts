@@ -2,8 +2,9 @@
 // @name        Make links to Qt docs
 // @namespace   Violentmonkey Scripts
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes
+// @match       https://wiki.qt.io/Qt_for_Python_Development_Notes_*
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      StSav012
 // @description Make links to Qt docs for classes mentioned on https://wiki.qt.io/Qt_for_Python_Development_Notes
 // ==/UserScript==
@@ -11,10 +12,28 @@
 "use strict";
 
 function qtClassLink(qtClass) {
+  var url;
+  switch (qtClass) {
+    case "QMatrix2x2":
+    case "QMatrix2x3":
+    case "QMatrix2x4":
+    case "QMatrix3x2":
+    case "QMatrix3x3":
+    case "QMatrix3x4":
+    case "QMatrix4x2":
+    case "QMatrix4x3":
+      url = "https://doc.qt.io/qt-6/" + "qgenericmatrix.html#" + qtClass + "-typedef";
+      break;
+    case "QAsyncio":
+      url = "https://doc.qt.io/qtforpython-6/PySide6/QtAsyncio/index.html";
+      break;
+    default:
+      url = "https://doc.qt.io/qt-6/" + qtClass.toLowerCase() + ".html";
+  };
   const a = document.createElement('A');
   a.setAttribute('class', "external text");
   a.setAttribute('rel', "nofollow");
-  a.setAttribute('href', 'https://doc.qt.io/qt-6/' + qtClass.toLowerCase() + '.html');
+  a.setAttribute('href', url);
   a.appendChild(document.createTextNode(qtClass));
   return a;
 }
