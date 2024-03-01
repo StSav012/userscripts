@@ -2,8 +2,9 @@
 // @name        Make links to bug reports in Qt for Python Development Notes
 // @namespace   Violentmonkey Scripts
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes
+// @match       https://wiki.qt.io/Qt_for_Python_Development_Notes_*
 // @grant       none
-// @version     1.1.1
+// @version     1.1.2
 // @author      StSav012
 // @description Make links to bug reports on https://wiki.qt.io/Qt_for_Python_Development_Notes page
 // ==/UserScript==
