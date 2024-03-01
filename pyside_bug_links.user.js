@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name        Make links to PYSIDE bug reports
+// @name        Make links to bug reports in Qt for Python Development Notes
 // @namespace   Violentmonkey Scripts
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes
 // @grant       none
-// @version     1.1.0
+// @version     1.1.1
 // @author      StSav012
-// @description Make links to PYSIDE bug reports on https://wiki.qt.io/Qt_for_Python_Development_Notes page
+// @description Make links to bug reports on https://wiki.qt.io/Qt_for_Python_Development_Notes page
 // ==/UserScript==
 
 "use strict";
@@ -20,7 +20,7 @@ function bugreportsLink(bug) {
 }
 
 function makeBugreportLinks(str) {
-  const bugreportPattern = /\b(?:COIN|QBS|QTBUG|QT3DS|AUTOSUITE|QTJIRA|CLOUD|QTCREATORBUG|QDS|QTEXT|QTMCU||PYSIDE|QTIFW|QLS|QTPLAYGROUND|QTWEBSITE|QTQAINFRA|QSR|QTSOLBUG|QTVSADDINBUG|QTWB|VSCODEEXT)-\d+/g;
+  const bugreportPattern = /\b(?:COIN|QBS|QTBUG|QT3DS|AUTOSUITE|QTJIRA|CLOUD|QTCREATORBUG|QDS|QTEXT|QTMCU|PYSIDE|QTIFW|QLS|QTPLAYGROUND|QTWEBSITE|QTQAINFRA|QSR|QTSOLBUG|QTVSADDINBUG|QTWB|VSCODEEXT)-\d+/g;
   var bugs = str.match(bugreportPattern);
   if (bugs === null) {
     return [str];
