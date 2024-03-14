@@ -4,7 +4,7 @@
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes_*
 // @grant       none
-// @version     1.1
+// @version     1.1.1
 // @author      StSav012
 // @description Make links to Qt docs for classes mentioned on https://wiki.qt.io/Qt_for_Python_Development_Notes
 // ==/UserScript==
