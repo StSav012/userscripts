@@ -4,7 +4,7 @@
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes_*
 // @grant       none
-// @version     1.1.1
+// @version     1.1.2
 // @author      StSav012
 // @description Make links to Qt docs for classes mentioned on https://wiki.qt.io/Qt_for_Python_Development_Notes
 // ==/UserScript==
@@ -28,7 +28,7 @@ function qtClassLink(qtClass) {
       url = "https://doc.qt.io/qtforpython-6/PySide6/QtAsyncio/index.html";
       break;
     default:
-      url = "https://doc.qt.io/qt-6/" + qtClass.toLowerCase() + ".html";
+      url = "https://doc.qt.io/qt-6/" + qtClass.toLowerCase().replaceAll("_", "-") + ".html";
   };
   const a = document.createElement('A');
   a.setAttribute('class', "external text");
@@ -39,7 +39,7 @@ function qtClassLink(qtClass) {
 }
 
 function makeQtClassLinks(str) {
-  const qtClassPattern = /\bQ[A-Z][a-z]\w+/g;
+  const qtClassPattern = /\bQ(?:3D)?[A-Z]\w+/g;
   var qtClasses = str.match(qtClassPattern);
   if (qtClasses === null) {
     return [str];
