@@ -4,7 +4,7 @@
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes
 // @match       https://wiki.qt.io/Qt_for_Python_Development_Notes_*
 // @grant       none
-// @version     1.1.2
+// @version     1.1.3
 // @author      StSav012
 // @description Make links to bug reports on https://wiki.qt.io/Qt_for_Python_Development_Notes page
 // ==/UserScript==
@@ -27,9 +27,6 @@ function makeBugreportLinks(str) {
     return [str];
   }
   var newNodes = [];
-  if (str.startsWith(bugs[0])) {
-    newNodes.push(bugreportsLink(bugs.shift()));
-  }
   var textParts = str.split(bugreportPattern);
   while (textParts.length || bugs.length) {
     var text = textParts.shift();
