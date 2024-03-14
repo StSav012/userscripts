@@ -45,9 +45,6 @@ function makeQtClassLinks(str) {
     return [str];
   }
   var newNodes = [];
-  if (str.startsWith(qtClasses[0])) {
-    newNodes.push(qtClassLink(qtClasses.shift()));
-  }
   var textParts = str.split(qtClassPattern);
   while (textParts.length || qtClasses.length) {
     var text = textParts.shift();
